@@ -91,7 +91,6 @@
 
 // console.log(result);
 
-
 //5. Напишіть код, який буде питати
 //логін за допомогою prompt и логіровати результат
 //в консоль браузера
@@ -127,9 +126,6 @@
 //     alert("Who are you?!");
 // }
 
-
-
-
 // 6. Напишіть функцію checkNumber(num), яка перевіряє число:
 // Якщо число ділитися на 3 повертати "fizz"
 // Якщо ділитися на 5 повертати "buzz"
@@ -151,11 +147,10 @@
 //     if (num % 5 === 0) {
 //         return "buzz";
 //     }
-   
+
 //     return "Error!";
 // }
 // console.log(checkNumber(1));
-
 
 // 7. Напишіть функцію, яка перевертатиме рядок у зворотньому порядку
 
@@ -182,3 +177,29 @@
 //     number = prompt ("Enter number more then 100")
 // }
 // console.log(number || "0");
+
+// // 9. В змінній minuteValue є число від 0 до 59.
+// Визначте до якої чверті години входить
+// це число(в першу, другу, треттю чи четверту).
+
+// const minuteValue = Math.floor(Math.random() * (59 - 0) + 0);
+// if (minuteValue <= 15) {
+//   console.log(`${minuteValue} - це перша чверть`);
+// } else if (minuteValue <= 30) {
+//   console.log(`${minuteValue} - це друга чверть`);
+// } else if (minuteValue <= 45) {
+//   console.log(`${minuteValue} - це третя чверть`);
+// } else {
+//   console.log(`${minuteValue} - це четверта чверть`);
+// }
+
+// 10. Є рядок, який складається із символів, наприклад, 'abcde'.
+// Перевірте, що першим символом цього рядка є літера 'a'.
+// Якщо це так - виведіть в alert 'Yes', в іншому випадку - 'No'.
+
+const string = prompt("enterString");
+if (string[0] === "a") {
+  alert("yes");
+} else {
+  alert("no");
+}
