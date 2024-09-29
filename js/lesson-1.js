@@ -138,20 +138,47 @@
 // функція має повертати "Not a number")
 // В якості дефолтного випадку повернути "Error!"
 
-function checkNumber(num) {
-    if (typeof num !== "number") {
-        return "Not a number";
-    }
-     if (num % 3 === 0 && num % 5 === 0) {
-       return "fizzbuzz";
-     }
-    if (num % 3 === 0) {
-        return "fizz";
-    }
-    if (num % 5 === 0) {
-        return "buzz";
-    }
+// function checkNumber(num) {
+//     if (typeof num !== "number") {
+//         return "Not a number";
+//     }
+//      if (num % 3 === 0 && num % 5 === 0) {
+//        return "fizzbuzz";
+//      }
+//     if (num % 3 === 0) {
+//         return "fizz";
+//     }
+//     if (num % 5 === 0) {
+//         return "buzz";
+//     }
    
-    return "Error!";
-}
-console.log(checkNumber(1));
+//     return "Error!";
+// }
+// console.log(checkNumber(1));
+
+
+// 7. Напишіть функцію, яка перевертатиме рядок у зворотньому порядку
+
+// function reverse(string) {
+//     let reverseString = "";
+//     for (let i = string.length - 1; i >= 0; i--){
+//         reverseString += string[i];
+
+//     }
+//     return reverseString.toLowerCase();
+// }
+// console.log(reverse("Hello"));
+
+// 8. Напишіть цикл, який пропонує ввести
+// число більше 100 через prompt.
+// Якщо користувач ввів інше число - попросити
+// ввести ще раз.
+// Цикл повинен питати число, доки користувач не
+// введе число більше 100, чи не натисне кнопку
+// Cancel в prompt
+
+// let number = prompt ("Enter number more then 100")
+// while (number < 100 && number) {
+//     number = prompt ("Enter number more then 100")
+// }
+// console.log(number || "0");
