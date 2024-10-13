@@ -125,34 +125,147 @@
 // raise() возводить першу властивість в ступінь другої і повертає результат (з перевіркою на наявність властивостей в об'єкті)
 // * винеси перевірку на наявність властивостей в об'єкті в окремий метод exist ()
 
-const calculator = {
-  read(a, b) {
-    this.valueA = a;
-    this.valueB = b;
-  },
-  sum() {
-    if (this.exist()) {
-      return this.valueA + this.valueB;
-    }
-    return "values not found";
-  },
-  mult() {
-    if (this.exist()) {
-      return this.valueA * this.valueB;
-    }
-    return "values not found";
-  },
-  raise() {
-    if (this.exist()) {
-      return this.valueA ** this.valueB;
-    }
-    return "values not found";
-  },
-  exist() {
-    return this.valueA && this.valueB;
-  },
-};
-// calculator.read(3, 6);
-console.log(calculator.sum());
-console.log(calculator.mult());
-console.log(calculator.raise());
+// const calculator = {
+//   read(a, b) {
+//     this.valueA = a;
+//     this.valueB = b;
+//   },
+//   sum() {
+//     if (this.exist()) {
+//       return this.valueA + this.valueB;
+//     }
+//     return "values not found";
+//   },
+//   mult() {
+//     if (this.exist()) {
+//       return this.valueA * this.valueB;
+//     }
+//     return "values not found";
+//   },
+//   raise() {
+//     if (this.exist()) {
+//       return this.valueA ** this.valueB;
+//     }
+//     return "values not found";
+//   },
+//   exist() {
+//     return this.valueA && this.valueB;
+//   },
+// };
+// // calculator.read(3, 6);
+// console.log(calculator.sum());
+// console.log(calculator.mult());
+// console.log(calculator.raise());
+
+// 11. Створіть телефонну книгу - об'єкт phonebook,
+// у якого є властивість contacts (список контактів)
+// та методи управління книгою:
+// add(data) - приймає об'єкт data, де зберігається
+// name, email, category, id, createdAt
+// (name i email - обов'язкові параметри, які треба передавати
+// при додаванні нового контакта,
+// category - може передаватись чи ні, якщо ні - має
+// приймати значення "default",
+// id та createdAt генеруються відповідними методами:
+// generateId() і getDate());
+// *не забудь додати перевірку, якщо контакт з таким ім'ям чи імейлом вже є - ми його не додаємо
+// list() - виводить список контактів у вигляді таблиці;
+// filtered(category) - фільтрує контактів по обраній категорії (друзі, робота і т.д.)
+// delete(name) - видаляє контакт з заданим ім'ям;
+// updateName(oldName, newName) - зиінює ім'я контакта;
+
+
+// const phonebook = {
+//     contacts: [],
+//     add(data) {
+//          for (const contact of this.contacts) {
+//             if (contact.name === data.name || contact.email === data.email) {
+//                 return console.log("User is already exsist");
+//             }
+//         }
+//         const contact = {
+//             name: data.name,
+//             email: data.email,
+//             category: data.category ?? "default",
+//             id: this.generateId(),
+//             createdAt: this.getDate(),
+//         }
+       
+//         this.contacts.push(contact);
+//     },
+//     list() {
+//         console.table(this.contacts);
+//     },
+//     filtered(category) {
+//         let array = [];
+//         for (const contact of this.contacts) {
+//             if (category === contact.category) {
+//                 array.push(contact);
+//             }
+//         }
+//         return array;
+//     },
+//     delete(name) {
+//         for (let i = 0; i < this.contacts.length; i++) {
+//             if (name === this.contacts[i].name) {
+//                 this.contacts.splice(i, 1);
+//             }
+//         }
+
+//     },
+//     updateName(oldName, newName) {
+//         for (const contact of this.contacts) {
+//             if (oldName === contact.name) {
+//                 contact.name = newName;
+
+//             }
+//         }
+
+//     },
+
+//     generateId() {
+//       return "#" + Math.random().toString(36).substr(2, 9);
+//     },
+//     getDate() {
+//       return Date.now();
+//     },
+// };
+  
+// phonebook.add({
+//   name: "Mango",
+//   email: "mango@mail.com",
+//   category: "friends",
+// });
+
+// phonebook.add({
+//   name: "Poly",
+//   email: "poly@hotmail.com",
+// });
+// phonebook.add({
+//   name: "Katy",
+//   email: "katy@hotmail.com",
+//   category: "friends",
+// });
+// console.log(phonebook.filtered("friends"));
+// phonebook.delete("Poly");
+// phonebook.updateName("Mango", "Alice");
+
+
+// phonebook.list();
+
+// HOME WORK 
+
+// 4. Напишіть функцію calculateAverage()
+// яка приймає довільну кількість
+// аргументів і повертає їхнє середнє значення.
+// Додати перевірку, що аргументи це числа.
+// 5. Напишіть функцію, яка шукатиме найдовше слово у реченні
+// console.log(findLongestWord("London is the capital of Great Britain")); // 'capital'
+// 6. Напишіть функцію, яка перевіряє, чи є
+// рядок (без урахування регістра) паліндромом.
+// Паліндром — це слово, число, фраза або інша
+// послідовність символів, яка читається як
+// в обратному, так і в прямому напрямку, наприклад,
+// madam або racecar
+// console.log(isPalindrome("Abba")); //true
+// console.log(isPalindrome("hello")); //false
