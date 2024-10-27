@@ -127,7 +127,6 @@ const tweets = [
 
 // console.log(getStatisticsOfTags(tweets));
 
-
 // 1. Створи клас User для створення користувача з такими властивостями:
 // a. userName - ім'я, рядок
 // b. age - вік, число
@@ -167,7 +166,6 @@ const tweets = [
 // console.log(user.updateNumberOfPosts(2));
 // console.log(user.getInfo());
 
-
 // 2. Напиши класс Client який створює об'єкт
 // із властивостями login, email
 // Об'яви приватні властивості #login і #email,
@@ -198,8 +196,6 @@ const tweets = [
 // console.log(client.getClientData);
 // console.log(client.changeEmail="newemail@supermail.com");
 
-
-
 // 3. Напиши класс Notes який управляє коллекцієй нотаток у
 // властивості items.
 // Нотатка це  об'єкт з властивостями text, priority
@@ -208,43 +204,105 @@ const tweets = [
 // Додай методи getNotes(), addNote(note), removeNote(noteText)
 // updatePriority(noteText, newPriority),
 
-class Notes {
-  static Priority = {
-    HIGH: "high",
-    MIDDLE: "middle",
-    LOW: "low",
-  }
+// class Notes {
+//   static Priority = {
+//     HIGH: "high",
+//     MIDDLE: "middle",
+//     LOW: "low",
+//   }
 
-  constructor() {
-    this.items = [];
-  }
+//   constructor() {
+//     this.items = [];
+//   }
 
-  getNotes() {
-    return this.items;
-  }
+//   getNotes() {
+//     return this.items;
+//   }
 
-  addNote(note) {
-    this.items.push(note);
-  }
+//   addNote(note) {
+//     this.items.push(note);
+//   }
 
-  removeNote(noteText) {
-    this.items = this.items.filter(item => item.text !== noteText);
-  }
+//   removeNote(noteText) {
+//     this.items = this.items.filter(item => item.text !== noteText);
+//   }
 
-  updatePriority(noteText, newPriority) {
-    const note = this.items.find(item => item.text === noteText);
-    if (note) {
-      note.priority = newPriority;
-    }
-  }
+//   updatePriority(noteText, newPriority) {
+//     const note = this.items.find(item => item.text === noteText);
+//     if (note) {
+//       note.priority = newPriority;
+//     }
+//   }
+// }
+
+// const notes = new Notes()
+
+// notes.addNote({ text: "Hello!", priority: Notes.Priority.HIGH })
+// notes.addNote({ text: "Hi!", priority: Notes.Priority.LOW })
+// notes.addNote({ text: "Bye", priority: Notes.Priority.MIDDLE })
+
+// notes.removeNote("Hi!");
+// notes.updatePriority("Hello!", Notes.Priority.MIDDLE)
+// console.table(notes.getNotes());
+
+// 5. Створити клас Contact для створення контакта з полями name, email і phone.
+// Потім створиnb клас ContactBook, який буде зберігати список контактів
+// і надавати методи для додавання, видалення та пошуку контактів.
+
+// class Contact {
+//   constructor(name, email, phone) {
+//     this.name = name;
+//     this.email = email;
+//     this.phone = phone;
+//   }
+// }
+
+// class ContactBook {
+//   constructor() {
+//     this.contacts = [];
+//   }
+
+//   addContact(contact) {
+//     this.contacts.push(contact);
+//   }
+
+//   removeContact(name) {}
+//   findContact(name) {}
+// }
+
+// const contactBook = new ContactBook();
+
+// const contact1 = new Contact("Alice", "alice@gmail.com", "0971343456");
+
+// contactBook.addContact(contact1);
+// console.log(contactBook);
+
+// 4. Функція askPassword приймає 2 колбека і викликає 1 із них в залежності від password
+// function askPassword(ok, fail) {
+//   let password = prompt("Password?");
+//   if (password === "admin") ok();
+//   else fail();
+// }
+// Створи об 'єкт user з властивостю name і двома методами
+// loginOk() і loginFail()
+// ці методи виводять в консоль повідомлення у форматі
+// "<name> logged in" та "<name> failed to log in" відповідно
+// зроби виклик функції askPassword, прив'язавши в якості аргументів методи об'єкта
+
+function askPassword(ok, fail) {
+  let password = prompt("Password?");
+  if (password === "admin") ok();
+  else fail();
 }
 
-const notes = new Notes()
+const user = {
+  name: "Alex",
+  loginOk() {
+    console.log(`${this.name} logged in`);
+  },
+  loginFail() {
+    console.log(`${this.name} failed to log in`);
+  },
+};
 
-notes.addNote({ text: "Hello!", priority: Notes.Priority.HIGH }) 
-notes.addNote({ text: "Hi!", priority: Notes.Priority.LOW })
-notes.addNote({ text: "Bye", priority: Notes.Priority.MIDDLE })
-
-notes.removeNote("Hi!");
-notes.updatePriority("Hello!", Notes.Priority.MIDDLE)
-console.table(notes.getNotes());
+askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
