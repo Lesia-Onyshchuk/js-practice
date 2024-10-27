@@ -112,17 +112,88 @@ const tweets = [
 // в усіх користувачів разом (не для кожного окремо)
 // має бути відповідь: {js: 5, nodejs: 5, html: 2, css: 2, react: 4}
 
-function getStatisticsOfTags(array) {
-  return array
-    .flatMap((item) => item.tags)
-    .reduce((stats, tag) => {
-      if (stats[tag]) {
-        stats[tag] += 1;
-      } else {
-        stats[tag] = 1;
-      }
-      return stats;
-    }, {});
+// function getStatisticsOfTags(array) {
+//   return array
+//     .flatMap((item) => item.tags)
+//     .reduce((stats, tag) => {
+//       if (stats[tag]) {
+//         stats[tag] += 1;
+//       } else {
+//         stats[tag] = 1;
+//       }
+//       return stats;
+//     }, {});
+// }
+
+// console.log(getStatisticsOfTags(tweets));
+
+
+// 1. Створи клас User для створення користувача з такими властивостями:
+// a. userName - ім'я, рядок
+// b. age - вік, число
+// c. numberOfPosts - кількість постів, число
+// d. конструктор очікує 1 параметр - об'єкт налаштувань з однойменними властивостями
+// Додай метод getInfo(), який повертає рядок:
+// `Користувачеві <name> <age> років і в нього <posts> публікацій.`
+// Додай метод updateNumberOfPosts(amount), який оновлює кількість постів юзера
+// де amount - це число, кількість постів, що має додаватись до вже існуючих у властивості numbersOfPost
+
+// class User {
+
+//   constructor (params){
+//     this.userName = params.userName;
+//     this.age = params.age;
+//     this.numberOfPosts = params.numberOfPosts;
+//   }
+
+//   getInfo(){
+//     return  `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numberOfPosts} публікацій.`
+//   }
+
+//   updateNumberOfPosts(amount){
+//     this.numberOfPosts += amount;
+//   }
+// }
+
+// const user = new User ({
+//   userName : "Poly",
+//   age : 21,
+//   numberOfPosts : 3
+// }
+
+// )
+
+// console.log(user);
+// console.log(user.updateNumberOfPosts(2));
+// console.log(user.getInfo());
+
+
+// 2. Напиши класс Client який створює об'єкт
+// із властивостями login, email
+// Об'яви приватні властивості #login і #email,
+// доступ до яких зроби через геттер и сеттер:
+// get getClientData() має повертати об'єкт з переліченими властивостями
+// set changeEmail(newEmail) перезаписує пошту користувача
+
+class Client {
+  #login;
+  #email;
+
+  constructor (login, email){
+    this.#login = login;
+    this.#email = email;
+  }
+
+  get getClientData(){
+    return {login: this.#login, email: this.#email}
+  }
+
+  set changeEmail(newEmail){
+    this.#email = newEmail;
+  }
 }
 
-console.log(getStatisticsOfTags(tweets));
+const client = new Client ("nameClient", "nameclient@supermail.com");
+
+console.log(client.getClientData);
+console.log(client.changeEmail="newemail@supermail.com");
