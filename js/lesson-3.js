@@ -175,25 +175,76 @@ const tweets = [
 // get getClientData() має повертати об'єкт з переліченими властивостями
 // set changeEmail(newEmail) перезаписує пошту користувача
 
-class Client {
-  #login;
-  #email;
+// class Client {
+//   #login;
+//   #email;
 
-  constructor (login, email){
-    this.#login = login;
-    this.#email = email;
+//   constructor (login, email){
+//     this.#login = login;
+//     this.#email = email;
+//   }
+
+//   get getClientData(){
+//     return {login: this.#login, email: this.#email}
+//   }
+
+//   set changeEmail(newEmail){
+//     this.#email = newEmail;
+//   }
+// }
+
+// const client = new Client ("nameClient", "nameclient@supermail.com");
+
+// console.log(client.getClientData);
+// console.log(client.changeEmail="newemail@supermail.com");
+
+
+
+// 3. Напиши класс Notes який управляє коллекцієй нотаток у
+// властивості items.
+// Нотатка це  об'єкт з властивостями text, priority
+// Додай класу статичну властивість Priority,
+// в якій буде зберігатись об'єкт з пріорітетами ("high", "middle", "low").
+// Додай методи getNotes(), addNote(note), removeNote(noteText)
+// updatePriority(noteText, newPriority),
+
+class Notes {
+  static Priority = {
+    HIGH: "high",
+    MIDDLE: "middle",
+    LOW: "low",
   }
 
-  get getClientData(){
-    return {login: this.#login, email: this.#email}
+  constructor() {
+    this.items = [];
   }
 
-  set changeEmail(newEmail){
-    this.#email = newEmail;
+  getNotes() {
+    return this.items;
+  }
+
+  addNote(note) {
+    this.items.push(note);
+  }
+
+  removeNote(noteText) {
+    this.items = this.items.filter(item => item.text !== noteText);
+  }
+
+  updatePriority(noteText, newPriority) {
+    const note = this.items.find(item => item.text === noteText);
+    if (note) {
+      note.priority = newPriority;
+    }
   }
 }
 
-const client = new Client ("nameClient", "nameclient@supermail.com");
+const notes = new Notes()
 
-console.log(client.getClientData);
-console.log(client.changeEmail="newemail@supermail.com");
+notes.addNote({ text: "Hello!", priority: Notes.Priority.HIGH }) 
+notes.addNote({ text: "Hi!", priority: Notes.Priority.LOW })
+notes.addNote({ text: "Bye", priority: Notes.Priority.MIDDLE })
+
+notes.removeNote("Hi!");
+notes.updatePriority("Hello!", Notes.Priority.MIDDLE)
+console.table(notes.getNotes());
