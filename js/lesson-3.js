@@ -306,3 +306,45 @@ const user = {
 };
 
 askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
+
+// 6. Є масив чисел, наприклад: arr = [1,2,3,4,5]
+// Напишіть функцію getSums(arr), яка повертає масив його часткових сум.
+// Іншими словами, виклик getSums(arr) має повертати новий масив з такої ж
+// кількості елементів, в якому на кожній позиції буде сума елементів масива
+// до цієї позиції включно
+
+// Наприклад: для arr = [1,2,3,4,5]
+// getSums( arr ) = [ 1, 1+2, 1+2+3, 1+2+3+4, 1+2+3+4+5 ] = [ 1, 3, 6, 10, 15 ]
+// Функція не має змінювати вхідний масив
+// Використовуйте метод reduce
+// 8. Reverse. Напишіть функцію, яка розгортає масив у зворотному порядку.
+// Будь ласка, не використовуйте array.reverse(), щоб зробити завдання цікавішим.
+
+// const data = [10, 20, 30, 40, 50, 60];
+// const alphData = ["a", "b", "c", "d", "e"];
+// 10. Знайти найдорожчий продукт у категорії "meat"
+// Напиши для цього функцію getMostExpensiveMeatProduct(products)
+
+// const products = [
+//   { name: 'Apple', category: 'fruits', price: 1.2, stock: 50 },
+//   { name: 'Banana', category: 'fruits', price: 0.8, stock: 100 },
+//   { name: 'Carrot', category: 'vegetables', price: 0.5, stock: 200 },
+//   { name: 'Broccoli', category: 'vegetables', price: 1.0, stock: 150 },
+//   { name: 'Milk', category: 'dairy', price: 1.5, stock: 20 },
+//   { name: 'Cheese', category: 'dairy', price: 2.5, stock: 5 },
+//   { name: 'Chicken', category: 'meat', price: 5.0, stock: 30 },
+//   { name
+// 4. Створити клас Worker, у якого є властивості name і salary.
+// У класу Worker є метод getSalary, який повертає повідомлення
+// "Worker <name> has salary <salary> dollars"
+// Створити клас WorkerPosition, у якого є властивість position
+// і який успадковує клас Worker, додаючи метод getPosition
+// який повертає повідомлення "<name> works as <position>"
+//Напиши клас Storage який створює об'єкти
+//Для управління складом товарів.
+//При виклику отримуватиме один агрумент - початковий масив товарів,
+//і записувати їх у властивість items.
+//Додай методи класу:
+//getItems() - повертайте масив товарів
+//addItems(item) - отримує новий товар та додає його до поточних
+//removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних
