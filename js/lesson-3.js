@@ -50,12 +50,10 @@ const tweets = [
 // **з перевіркою наявності такої властивості:
 // якщо властивості немає - повертати 'Sory, no such property in array!'
 
-
 // function getNames(array) {
 //     return array.map(item => item.name);
 // }
 // console.log(getNames(tweets));
-
 
 // function getRandomValues(array, prop) {
 
@@ -66,7 +64,6 @@ const tweets = [
 // }
 // console.log(getRandomValues(tweets, "gende"));
 
-
 // 2. Напишіть функцію getUsersWithJs(array), яка приймає масив об'єктів і повертає масив тільки тих користувачів,
 // у кого є тег "js" (властивість tags)
 
@@ -76,27 +73,56 @@ const tweets = [
 // }
 // console.log(getUsersWithJs(tweets));
 
-
 // 3. Написати функцію getUsersWithGender(array, gender), яка приймає масив і стать
 // і повертає масив імен користувачів по цій статі (властивість gender)
 
 // function getUsersWithGender(array, gender) {
 //   return array.filter(item => item.gender === gender)
 //     .map(item => item.name)
-  
+
 // }
 
-function getUsersWithGender(array, gender) {
-  return array.reduce((names, item) => {
-    if (item.gender === gender) {
-      names.push(item.name)
-    }
-    return names
-  }, [])
+// function getUsersWithGender(array, gender) {
+//   return array.reduce((names, item) => {
+//     if (item.gender === gender) {
+//       names.push(item.name)
+//     }
+//     return names
+//   }, [])
+// }
+
+// console.log(getUsersWithGender(tweets, "male"));
+
+// 4. Написати функцію getSortedUniqueTags(array), яка приймає масив
+// і повертає масив всіх тегів усіх користувачів (поле tags), при цьому не повинно бути
+// повторювань тегів і вони мають бути відсортовані в алфавітному порядку.
+// Використай ланцюжок методів.
+
+// function getSortedUniqueTags(array) {
+//   return array
+//     .flatMap((item) => item.tags)
+//     .filter((tag, index, array) => array.indexOf(tag) === index)
+//     .toSorted((a, b) => a.localeCompare(b));
+// }
+
+// console.log(getSortedUniqueTags(tweets));
+
+// 5. Напишіть функцію getStatisticsOfTags(array), яка приймає масив
+// і повертає об'єкт статистики, який враховує скільки разів повторюється кожен тег
+// в усіх користувачів разом (не для кожного окремо)
+// має бути відповідь: {js: 5, nodejs: 5, html: 2, css: 2, react: 4}
+
+function getStatisticsOfTags(array) {
+  return array
+    .flatMap((item) => item.tags)
+    .reduce((stats, tag) => {
+      if (stats[tag]) {
+        stats[tag] += 1;
+      } else {
+        stats[tag] = 1;
+      }
+      return stats;
+    }, {});
 }
 
-
-
-console.log(getUsersWithGender(tweets, "male"));
-
-
+console.log(getStatisticsOfTags(tweets));
