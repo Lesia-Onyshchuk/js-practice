@@ -165,11 +165,50 @@
 // 5. Натиснувши кнопку "Подвоювати", збільшити значення
 // у кожному елементі списку у 2 рази
 
-const button = document.getElementById("double");
-const listItems = document.querySelectorAll(".listItem")
+// const button = document.getElementById("double");
+// const listItems = document.querySelectorAll(".listItem")
 
-button.addEventListener("click", () => {
-  listItems.forEach(item => {
-    item.textContent *= 2;
-  })
-})
+// button.addEventListener("click", () => {
+//   listItems.forEach(item => {
+//     item.textContent *= 2;
+//   })
+// })
+
+//  8. При натисканні на будь-який рядок у табличці відобразіть
+//  повідомлення з назвою продукту та його ціною.
+//  "Ви вибрали <product> за <price>".
+
+// const table = document.getElementById("productTable");
+// const text = document.getElementById("productDetails");
+
+// table.addEventListener("click", showMessage);
+
+// function showMessage(event) {
+  
+//   if (event.target.nodeName !== "TD") return;
+
+//   const parent = event.target.parentNode;
+//   const product = parent.firstElementChild.textContent;
+//   const price = parent.lastElementChild.textContent;
+
+// text.textContent = ` Ви вибрали ${product} за ${price}`;
+
+// }
+
+// 9. При натисканні на кожну з кнопок підсумовуються значення з data-атрибутів.
+// За натисканням на кнопку "Вивести результат" виводиться сума значення, а також статистика з
+// інформацією про те, яка кнопка була натиснута скільки разів.
+
+
+const statList = document.querySelector(".statList");
+const resultButton = document.getElementById("resultButton");
+const resultSection = document.getElementById("resultSection");
+let result = 0;
+statList.addEventListener("click", countNumbers);
+
+function countNumbers(event) {
+  if (!event.target.classList.contains("calcButton")) return;
+  const count = +event.target.dataset.number;
+  result += count;
+  console.log(result);
+}
